@@ -1,0 +1,15 @@
+[
+    { "name": "admin.users.view" },
+    { "name": "admin.users.create" },
+    { "name": "admin.users.update" },
+    { "name": "admin.users.delete" },
+    { "name": "admin.users.export" },
+
+    { "name": "founder.add.member" },
+    { "name": "founder.accept.member" },
+    { "name": "founder.delete.member" },
+
+    { "name": "member.manage.organization" },
+
+    { "name": "beneficiary.give.feedback" }
+]

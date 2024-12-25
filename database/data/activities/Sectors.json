@@ -1,0 +1,38 @@
+[
+    {
+        "name": "education_sensibilisation"
+    },
+    {
+        "name": "health"
+    },
+    {
+        "name": "sustainable_production_and_consumption"
+    },
+    {
+        "name": "clean_energy"
+    },
+    {
+        "name": "water_and_sanitation"
+    },
+    {
+        "name": "waste_and_circular_economy"
+    },
+    {
+        "name": "environment"
+    },
+    {
+        "name": "art_and_culture"
+    },
+    {
+        "name": "digital_and_technology"
+    },
+    {
+        "name": "mobility"
+    },
+    {
+        "name": "finance"
+    },
+    {
+        "name": "social_cohesion"
+    }
+]
