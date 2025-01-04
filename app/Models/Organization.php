@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enum\OrganizationEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -13,7 +14,18 @@ class Organization extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'name'
+        'name',
+        'status',
+        'user_id',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<int, string>
+     */
+    protected $casts = [
+        'status' => OrganizationEnum::class,
     ];
 
     /**

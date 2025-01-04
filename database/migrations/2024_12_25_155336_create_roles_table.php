@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::create('roles', function (Blueprint $table) {
-        //     $table->string('space')->default(config('permission.default_space'))->after('name');
-        // });
+        Schema::table('roles', function (Blueprint $table) {
+            $table->string('space')->default(config('permission.default_space'))->after('name');
+        });
     }
 
     /**

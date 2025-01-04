@@ -2,7 +2,11 @@
 
 namespace {{ namespace }};
 
-enum {{ class }}
+use App\Traits\Enums\Names;
+use App\Traits\Enums\Values;
+
+enum {{ class }} : string
 {
+    use Names, Values;
     //
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enum\OrganizationEnum;
 use App\Http\Controllers\Controller;
 use App\Models\Organization;
 use App\Models\User;
@@ -52,10 +53,17 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        if ($request->is_beneficary) {
+            $user->assignRole('beneficiary');
+        }
+
         if ($request->is_creating) {
             Organization::create([
-                'name' => $request->organization->creation->name
+                'name' => $request->organization['creation']['name'],
+                'status' => OrganizationEnum::PENDING,
+                'user_id' => $user->id
             ]);
+            $user->assignRole('founder');
         }
         /**TODO::Look for organization registration code */
         event(new Registered($user));
