@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Organization extends Model
 {
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+    protected $fillable = [
+        'name'
+    ];
 
     /**
      * Function for getting the description of Organization
