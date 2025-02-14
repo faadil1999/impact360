@@ -16,6 +16,14 @@
         "space": "beneficiary"
     },
     {
+        "name": "Contributor",
+        "space": "contributor"
+    },
+    {
+        "name": "Actor",
+        "space": "actor"
+    },
+    {
         "name": "Organization-Actor",
         "space": "organization-actor"
     },

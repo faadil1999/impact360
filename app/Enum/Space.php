@@ -13,6 +13,8 @@ enum Space: string
     case Founder = 'founder';
     case Member = 'member';
     case Beneficiary = 'beneficiary';
+    case Contributor = 'contributor';
+    case Actor = 'actor';
     case OrganizationActor = 'organization-actor';
     case OrganizationContributror = 'organization-contributor';
 }

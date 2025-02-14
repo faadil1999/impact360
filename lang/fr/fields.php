@@ -23,6 +23,10 @@ return [
             "email" => "Email",
             "password" => "Mot de passe",
             "confirm_password" => "Confirmation de mot de passe",
+            "account_creation" => "Création de compte",
+            "role_user" => "Rôle de l'utilisateur",
+            'details_about_contributor' => "Vous voulez contribuer financièrement ou en tant que bénévole aux activités",
+            'details_about_beneficiary' => "Vous voulez bénéficier des activités et services proposées par les organisations"
         ]
     ],
 ];
