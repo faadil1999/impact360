@@ -1,6 +1,6 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import { Head } from "@inertiajs/vue3";
 </script>
 
 <template>
@@ -21,7 +21,10 @@ import { Head } from '@inertiajs/vue3';
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        You're logged in!
+                        You're logged in as a
+                        <span class="font-bold text-green-400">
+                            {{ $page.props.auth.user.roles[0].name }}
+                        </span>
                     </div>
                 </div>
             </div>

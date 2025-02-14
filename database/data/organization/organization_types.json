@@ -1,0 +1,26 @@
+[
+    {
+        "name": "private",
+        "subTypes": [
+            { "name": "NGO" },
+            { "name": "associations" },
+            { "name": "mutual" },
+            { "name": "company" },
+            { "name": "foundation" },
+            { "name": "cooperative" },
+            { "name": "federation" }
+        ]
+    },
+    {
+        "name": "public",
+        "subTypes": [
+            { "name": "ministry" },
+            { "name": "agency" },
+            { "name": "national" },
+            { "name": "municipality" },
+            { "name": "department" },
+            { "name": "organization" },
+            { "name": "international" }
+        ]
+    }
+]
