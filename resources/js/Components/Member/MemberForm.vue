@@ -1,5 +1,5 @@
 <script setup>
-import BeneficiayRegisterStepPages from "@/Components/Beneficiary/BeneficiaryRegisterStepPages.vue";
+import MemberRegisterStepPages from "@/Components/Member/MemberRegisterStepPages.vue";
 
 const props = defineProps({
     userRoles: {
@@ -12,7 +12,7 @@ const emit = defineEmits(["back", "submit"]);
 </script>
 <template>
     <div>
-        <BeneficiayRegisterStepPages @back="emit('back')" :userRoles>
-        </BeneficiayRegisterStepPages>
+        <MemberRegisterStepPages @back="emit('back')" :userRoles>
+        </MemberRegisterStepPages>
     </div>
 </template>

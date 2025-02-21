@@ -15,7 +15,7 @@ class Organization extends Model
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, HasRoles;
 
-    protected $guarded = [];
+    protected $guard_name  = ['web'];
 
     /**
      * The attributes that are mass assignable.
@@ -38,6 +38,17 @@ class Organization extends Model
     protected $casts = [
         'status' => OrganizationStatusEnum::class,
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($organization) {
+            if (!$organization->status) {
+                $organization->status = OrganizationStatusEnum::PENDING;
+            }
+        });
+    }
 
     /**
      * Function for getting the description of Organization

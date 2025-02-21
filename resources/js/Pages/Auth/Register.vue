@@ -5,7 +5,7 @@ import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import ChoseRoleComponent from "@/Components/Register/ChoseRoleComponent.vue";
-import BeneficiaryForm from "@/Components/Beneficiary/BeneficiaryForm.vue";
+import MemberForm from "@/Components/Member/MemberForm.vue";
 import TextInput from "@/Components/TextInput.vue";
 import OrganizationForm from "@/Components/Organization/OrganizationForm.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
@@ -112,11 +112,11 @@ function showRegisterForm() {
             <h1 class="text-center text-white font-semibold">Impact 360</h1>
         </div>
 
-        <BeneficiaryForm
+        <MemberForm
             v-if="showRegister"
             @back="showChoiceRoleForm()"
             :userRoles
-        ></BeneficiaryForm>
+        ></MemberForm>
 
         <!--Chose role-->
         <ChoseRoleComponent

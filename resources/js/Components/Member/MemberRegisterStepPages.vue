@@ -23,6 +23,7 @@ const props = defineProps({
 });
 
 const form = useForm({
+    is_member: true,
     register: {
         first_name: "",
         last_name: "",
@@ -30,7 +31,7 @@ const form = useForm({
         email: "",
         password: "",
         password_confirmation: "",
-        role: [],
+        roles: [],
     },
 });
 const emit = defineEmits(["back"]);
@@ -38,6 +39,16 @@ const emit = defineEmits(["back"]);
 function backToChoice() {
     form.register = null;
     emit("back");
+}
+
+function register() {
+    form.post(route("member.register"), {
+        onFinish: () =>
+            form.reset(
+                "organization.founder.password",
+                "organization.founder.password_confirmation"
+            ),
+    });
 }
 </script>
 <template>
@@ -175,7 +186,7 @@ function backToChoice() {
                             <div v-for="role in userRoles" :key="role">
                                 <div class="flex gap-2">
                                     <Checkbox
-                                        v-model="form.register.role"
+                                        v-model="form.register.roles"
                                         :inputId="role"
                                         name="role"
                                         :value="role"
@@ -209,10 +220,10 @@ function backToChoice() {
                         @click="activateCallback('1')"
                     />
                     <Button
-                        label="Next"
+                        label="Enregistrer"
                         icon="pi pi-arrow-right"
                         iconPos="right"
-                        @click="activateCallback('2')"
+                        @click="register()"
                     />
                 </div>
             </StepPanel>

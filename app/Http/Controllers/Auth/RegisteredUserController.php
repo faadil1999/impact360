@@ -62,35 +62,14 @@ class RegisteredUserController extends Controller
             'organization.creation.sub_type_organization_id' => ['required_if:is_founder,true', 'integer'],
             'organization.creation.organization_role' => ['required_if:is_founder,true', 'array']
         ]);
-        dd($validated);
 
-        if ($validated['is_founder']) {
-
-            $user = User::create([
-                'first_name' => $validated['organization']['founder']['first_name'],
-                'last_name' => $validated['organization']['founder']['last_name'],
-                'phone' => $validated['organization']['founder']['phone'],
-                'email' => $validated['organization']['founder']['email'],
-                'password' => Hash::make($validated['organization']['founder']['password']),
-            ]);
-            $organization = Organization::create([
-                'name' => $validated['organization']['creation']['name'],
-                'user_id' => $user->id,
-                'status' => OrganizationStatusEnum::PENDING,
-                'organization_type_id' => $validated['organization']['creation']['type_organization_id'],
-                'organization_sub_type_id' => $validated['organization']['creation']['sub_type_organization_id']
-            ]);
-
-            $user->assignRole('founder');
-            foreach ($role as $validated['organization']['creation']['organization_role']) {
-                $organization->assignRole($role);
-            }
-        }
-
-        if ($validated['is_beneficary']) {
-            $user->assignRole('beneficiary');
-        }
-
+        $user = User::create([
+            'first_name' => $validated['organization']['founder']['first_name'],
+            'last_name' => $validated['organization']['founder']['last_name'],
+            'phone' => $validated['organization']['founder']['phone'],
+            'email' => $validated['organization']['founder']['email'],
+            'password' => Hash::make($validated['organization']['founder']['password']),
+        ]);
 
         /**TODO::Look for organization registration code */
         event(new Registered($user));

@@ -86,7 +86,7 @@ function register() {
             data.organization.creation.sub_type_organization.id;
 
         return data;
-    }).post(route("register"), {
+    }).post(route("founder.register"), {
         onFinish: () =>
             form.reset(
                 "organization.founder.password",
