@@ -6,6 +6,7 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createApp, h } from "vue";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 import { i18nVue } from "laravel-vue-i18n";
+import ToastService from "primevue/toastservice";
 import PrimeVue from "primevue/config";
 import Aura from "@primevue/themes/aura";
 
@@ -26,6 +27,7 @@ createInertiaApp({
                     preset: Aura,
                 },
             })
+            .use(ToastService)
             .use(ZiggyVue)
             .use(i18nVue, {
                 resolve: async (lang) => {

@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import Menu from "primevue/menu";
 import Badge from "primevue/badge";
-
+import { trans } from "laravel-vue-i18n";
 const items = ref([
     {
         separator: true,
@@ -26,29 +26,56 @@ const items = ref([
         label: "Profile",
         items: [
             {
-                label: "Settings",
-                icon: "pi pi-cog",
-                shortcut: "⌘+O",
+                label: trans("menu.dashboard"),
+                icon: "pi pi-objects-column",
+                route: "#",
             },
             {
-                label: "Messages",
-                icon: "pi pi-inbox",
-                badge: 2,
+                label: trans(
+                    "menu.organization.side_bar.organization.label_singular"
+                ),
+                icon: "pi pi-warehouse",
+                route: "#",
             },
             {
-                label: "Logout",
-                icon: "pi pi-sign-out",
-                shortcut: "⌘+Q",
+                label: trans(
+                    "menu.organization.side_bar.activity_service.label_plural"
+                ),
+                icon: "pi pi-briefcase",
+                route: "#",
+            },
+            {
+                label: trans(
+                    "menu.organization.side_bar.contribution.label_plural"
+                ),
+                icon: "pi pi-gift",
+                route: route("logout"),
+            },
+            {
+                label: trans(
+                    "menu.organization.side_bar.campagne_crowdfunding.label_plural"
+                ),
+                icon: "pi pi-percentage",
+                route: "#",
+            },
+            {
+                label: trans(
+                    "menu.organization.side_bar.impact.label_singular"
+                ),
+                icon: "pi pi-megaphone",
+                route: "#",
+            },
+            {
+                label: trans("menu.organization.side_bar.discorvery.label"),
+                icon: "pi pi-lightbulb",
+                route: "#",
             },
         ],
-    },
-    {
-        separator: true,
     },
 ]);
 </script>
 <template>
-    <div class="card absolute">
+    <div class="card">
         <Menu :model="items" class="w-full md:w-60 h-screen">
             <template #start>
                 <span class="inline-flex items-center gap-1 px-2 py-2">
@@ -70,7 +97,7 @@ const items = ref([
                         />
                     </svg>
                     <span class="text-xl font-semibold"
-                        >PRIME<span class="text-primary">APP</span></span
+                        >IMPACT 360 <span class="text-primary">APP</span></span
                     >
                 </span>
             </template>
@@ -78,19 +105,19 @@ const items = ref([
                 <span class="text-primary font-bold">{{ item.label }}</span>
             </template>
             <template #item="{ item, props }">
-                <a v-ripple class="flex items-center" v-bind="props.action">
+                <a
+                    v-ripple
+                    class="flex items-center mt-1"
+                    v-bind="props.action"
+                    :href="item.route"
+                >
                     <span :class="item.icon" />
-                    <span>{{ item.label }}</span>
+                    <span class="text-sm">{{ item.label }}</span>
                     <Badge
                         v-if="item.badge"
                         class="ml-auto"
                         :value="item.badge"
                     />
-                    <span
-                        v-if="item.shortcut"
-                        class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1"
-                        >{{ item.shortcut }}</span
-                    >
                 </a>
             </template>
         </Menu>
