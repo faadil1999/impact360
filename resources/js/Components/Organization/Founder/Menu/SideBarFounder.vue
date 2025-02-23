@@ -13,7 +13,6 @@ const items = ref([
             {
                 label: "New",
                 icon: "pi pi-plus",
-                shortcut: "⌘+N",
             },
             {
                 label: "Search",
@@ -28,8 +27,9 @@ const items = ref([
             {
                 label: trans("menu.dashboard"),
                 icon: "pi pi-objects-column",
-                route: "#",
+                route: route("founder.dashboard"),
             },
+
             {
                 label: trans(
                     "menu.organization.side_bar.organization.label_singular"
