@@ -22,6 +22,9 @@ return [
             'discorvery' => [
                 'label' => 'Découvrir',
             ],
+            'member' => [
+                'label_plural' => "Membres d'organisation",
+            ]
         ]
     ]
 
